@@ -1,0 +1,8 @@
+mlflow==2.4
+cloudpickle==2.2.1
+configparser==5.3.0
+importlib-metadata==4.11.3
+numpy==1.23.5
+psutil==5.9.0
+scikit-learn==1.2.0
+scipy==1.9.3

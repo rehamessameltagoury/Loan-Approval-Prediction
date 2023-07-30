@@ -1,0 +1,27 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.9.16
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.2.0
+mlflow_version: 2.4.1
+model_uuid: c8f223186cff424ba3cb667a08ecc6df
+run_id: 7c9351c967e643109b46f1bf12b682b2
+signature:
+  inputs: '[{"type": "long", "name": " no_of_dependents"}, {"type": "long", "name":
+    " education"}, {"type": "long", "name": " self_employed"}, {"type": "long", "name":
+    " income_annum"}, {"type": "long", "name": " loan_amount"}, {"type": "long", "name":
+    " loan_term"}, {"type": "long", "name": " cibil_score"}, {"type": "long", "name":
+    " residential_assets_value"}, {"type": "long", "name": " commercial_assets_value"},
+    {"type": "long", "name": " luxury_assets_value"}, {"type": "long", "name": " bank_asset_value"}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+utc_time_created: '2023-07-29 10:34:38.082830'

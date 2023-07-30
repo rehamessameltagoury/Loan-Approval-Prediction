@@ -17,4 +17,8 @@ The loan approval dataset is a collection of financial records and associated in
   * commercial_assets_value     
   * luxury_assets_value         
   * bank_asset_value            
-  * loan_status: Our target Column for prediction            
+  * loan_status: Our target Column for prediction    
+
+  ## Loan_Approval_prediction.ipynb
+
+  ## Loan_Approval_prediction.py
