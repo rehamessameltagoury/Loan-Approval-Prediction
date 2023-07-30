@@ -1,5 +1,5 @@
 deployments:
-- name: Loan_approval_prediction
+- name: Loan_approval
   entrypoint: Loan_Approval_Predictions.py:main_flow
   work_pool:
-    name: LoanApproval
+    name: loan_approval

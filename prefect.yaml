@@ -7,29 +7,38 @@ name: MLOPSZoomcampProject
 prefect-version: 2.11.1
 
 # build section allows you to manage and build docker images
-build: null
+build:
 
 # push section allows you to manage if and how this project is uploaded to remote locations
-push: null
+push:
 
 # pull section allows you to provide instructions for cloning this project in remote locations
 pull:
 - prefect.deployments.steps.git_clone:
     repository: git@github.com:rehamessameltagoury/MLOPSZoomcampProject.git
     branch: main
-    access_token: null
+    access_token:
 
 # the deployments section allows you to provide configuration for deploying flows
+
+
+
 deployments:
-- name: null
-  version: null
+- name: Loan_approval
+  entrypoint: Loan_Approval_Predictions.py:main_flow
+  work_pool:
+    name: loan_approval
+- name: loan1
+  version:
   tags: []
-  description: null
-  schedule: {}
-  flow_name: null
-  entrypoint: null
+  description:
+  entrypoint: .\Loan_Approval_Predictions.py:main_flow
   parameters: {}
   work_pool:
-    name: null
-    work_queue_name: null
+    name: loan_approval
+    work_queue_name:
     job_variables: {}
+  schedule:
+    interval: 3600.0
+    anchor_date: '2023-07-30T08:47:43.531926+00:00'
+    timezone: UTC

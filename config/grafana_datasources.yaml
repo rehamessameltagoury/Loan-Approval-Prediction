@@ -1,0 +1,15 @@
+# config file version
+apiVersion: 1
+
+# datasources
+datasources:
+  - name: PostgresSQL
+    type: postgres
+    access: proxy
+    url: db.:5432
+    database: loanprediction
+    user: postgres
+    secureJsonData:
+      password: 'example'
+    jsonData:
+      sslmode: 'disable'
