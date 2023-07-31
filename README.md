@@ -52,8 +52,9 @@ The loan approval dataset is a collection of financial records and associated in
   
     #### please note if you want the emails to be activited add your app password in Cred.py
     4- For Monitoring
-      Run docker compose
+  
+  Run docker compose
         `docker-compose up --build`
-      Run evidently file 
+  Run evidently file 
          `python .\evidently_metrics.py`
-      Open Grafana on port 3000
+  Open Grafana on port 3000
