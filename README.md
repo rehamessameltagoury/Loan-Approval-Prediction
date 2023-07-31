@@ -53,12 +53,9 @@ The loan approval dataset is a collection of financial records and associated in
   
          `prefect deploy Loan_Approval_prediction.py:main_flow -n loan1 -p loan_approval`
   
-  Get worker
-  
-          `prefect worker start --pool 'loan_approval'`
+  Get worker `prefect worker start --pool 'loan_approval'`
   
   Start Run
-  
           `prefect deployment run 'main-flow/loan1'`
   
     #### please note if you want the emails to be activited add your app password in Cred.py
