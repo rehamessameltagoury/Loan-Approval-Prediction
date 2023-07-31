@@ -25,8 +25,7 @@ The loan approval dataset is a collection of financial records and associated in
     ### read_dataframe :
         Function used to read the csv data from data folder and then encode `loan_status` , `education` , `self_employed` and returns dataframe
     ### run_data_prep:
-         this function is considered to be the first task:
-           it takes the Data path and output the pickle files (train , Val) to be passed to Random Forest Model
+         this function is considered to be the first task,it takes the Data path and output the pickle files (train , Val) to be passed to Random Forest Model
     ### run_optimization:
           this function creates an optimize study to run mutliple parameters Random forest model and pick the best one
     ### train_and_log_model:
@@ -40,23 +39,16 @@ The loan approval dataset is a collection of financial records and associated in
   ## How to Run:
     1- Download data folder
   
-    2- Install requirements.txt
+    2- Install requirements.txt  `pip install -r requirements.txt`
   
-          `pip install -r requirements.txt`
-  
-    2- Run Loan_Approval_prediction.py
-         `python Loan_Approval_prediction.py`
+    2- Run Loan_Approval_prediction.py  `python Loan_Approval_prediction.py`
   
     3- for deploying
-  
-        Create work pool named loan_approval
-  
-         `prefect deploy Loan_Approval_prediction.py:main_flow -n loan1 -p loan_approval`
+  Create work pool named loan_approval:  `prefect deploy Loan_Approval_prediction.py:main_flow -n loan1 -p loan_approval`
   
   Get worker `prefect worker start --pool 'loan_approval'`
   
-  Start Run
-          `prefect deployment run 'main-flow/loan1'`
+  Start Run  `prefect deployment run 'main-flow/loan1'`
   
     #### please note if you want the emails to be activited add your app password in Cred.py
     4- For Monitoring
