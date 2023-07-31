@@ -71,7 +71,6 @@ report = Report(metrics = [
 @task(retries=2, retry_delay_seconds=5, name="calculate metrics")
 def prep_db():
 	with psycopg.connect("host=localhost port=5432 user=postgres password=new_password", autocommit=True) as conn:
-		print("WTF")
 		res = conn.execute("SELECT 1 FROM pg_database WHERE dbname='loanprediction'")
 		if len(res.fetchall()) == 0:
 			conn.execute("create database loanprediction;")
