@@ -36,6 +36,9 @@ The loan approval dataset is a collection of financial records and associated in
     ### main_flow:
         at the end it picks the best model which is version 1  with acc = 98% and move it to production  state
   ### the script is deployed on prefect locally and send emails when there is failure or success to notify the developer
+  ## evidently_metrics.py:
+  I used to connect with postgressql database and send my data to be saved in it and monitor them on grafana Dashboard I picked these three metrics to be monitored
+  `drift_score` ,    `number_of_drifted_columns`  , `share_of_missing_values`
       
   ## How to Run:
     1- Download data folder
