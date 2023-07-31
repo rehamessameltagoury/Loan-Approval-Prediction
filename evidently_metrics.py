@@ -70,12 +70,12 @@ report = Report(metrics = [
 
 @task(retries=2, retry_delay_seconds=5, name="calculate metrics")
 def prep_db():
-	with psycopg.connect("host=localhost port=5432 user=postgres password=example", autocommit=False) as conn:
+	with psycopg.connect("host=localhost port=5432 user=postgres password=new_password", autocommit=True) as conn:
 		print("WTF")
 		res = conn.execute("SELECT 1 FROM pg_database WHERE dbname='loanprediction'")
 		if len(res.fetchall()) == 0:
 			conn.execute("create database loanprediction;")
-		with psycopg.connect("host=localhost port=5432 dbname=loanprediction user=postgres password=example") as conn:
+		with psycopg.connect("host=localhost port=5432 dbname=loanprediction user=postgres password=new_password") as conn:
 			conn.execute(create_table_statement)
 
 @task(retries=2, retry_delay_seconds=5, name="calculate metrics postgres")
@@ -104,7 +104,7 @@ def calculate_metrics_postgresql(curr, i):
 def batch_monitoring_backfill():
 	prep_db()
 	last_send = datetime.datetime.now() - datetime.timedelta(seconds=10)
-	with psycopg.connect("host=localhost port=5432 dbname=test user=postgres password=example", autocommit=True) as conn:
+	with psycopg.connect("host=localhost port=5432 dbname=loanprediction user=postgres password=new_password", autocommit=True) as conn:
 		for i in range(0, 27):
 			with conn.cursor() as curr:
 				calculate_metrics_postgresql(curr, i)

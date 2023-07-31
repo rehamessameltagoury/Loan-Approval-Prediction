@@ -17,6 +17,7 @@ services:
       - "5432:5432"
     networks:
       - back-tier
+      - front-tier  
   adminer:
     image: adminer
     restart: always
