@@ -1,3 +1,4 @@
+
 # Loan Approval Prediction 
 
 # Problem Statement:
@@ -55,6 +56,8 @@ The loan approval dataset is a collection of financial records and associated in
   
   Run docker compose
         `docker-compose up --build`
+  
   Run evidently file 
          `python .\evidently_metrics.py`
+  
   Open Grafana on port 3000
