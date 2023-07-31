@@ -45,8 +45,7 @@ The loan approval dataset is a collection of financial records and associated in
           `pip install -r requirements.txt`
   
     2- Run Loan_Approval_prediction.py
-  
-            `python Loan_Approval_prediction.py`
+         `python Loan_Approval_prediction.py`
   
     3- for deploying
   
