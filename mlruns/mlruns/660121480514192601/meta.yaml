@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/660121480514192601
+creation_time: 1692091353691
+experiment_id: '660121480514192601'
+last_update_time: 1692091353691
+lifecycle_stage: active
+name: LoanApprovalExpirement

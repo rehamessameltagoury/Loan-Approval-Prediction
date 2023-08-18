@@ -12,12 +12,11 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_PASSWORD: new_password
     ports:
       - "5432:5432"
     networks:
-      - back-tier
-      - front-tier  
+      - back-tier 
   adminer:
     image: adminer
     restart: always

@@ -39,15 +39,32 @@ The loan approval dataset is a collection of financial records and associated in
   ## evidently_metrics.py:
   I used to connect with postgressql database and send my data to be saved in it and monitor them on grafana Dashboard I picked these three metrics to be monitored
   `drift_score` ,    `number_of_drifted_columns`  , `share_of_missing_values`
+  ## tests/model_test.py:
+    In the test file I tested two functionalities first is the accuarcy metric if it's above thershold(90%) ,
+    second if the first row is predicted correctly
       
   ## How to Run:
-    1- Download data folder
+    1. Download data folder
+
+    2. Download Anaconda from `https://anaconda.org/`
+
+    3. Create Anaconda Environment `conda create -n mlops python=3.9.16`
+
+    4. Activate your environment  `conda activate mlops`
   
-    2- Install requirements.txt  `pip install -r requirements.txt`
+    5. Install requirements.txt  `pip install -r requirements.txt`
+
+    6. Add you Email and password in Cred.py
+
+    7. Run mflow `mlflow server --backend-store-uri=sqlite:///mlflow.db`
+
+    8. open anaconda terminal and Launch Prefect `prefect server start`
+
+    9. open another anaconda terminal and configure prefect settings by running `prefect config set PREFECT_API_URL=http://127.0.0.1:4200/api`
   
-    2- Run Loan_Approval_prediction.py  `python Loan_Approval_prediction.py`
+    10. Run Loan_Approval_prediction.py  `python Loan_Approval_prediction.py`
   
-    3- for deploying
+    11. for deploying
   Create work pool named loan_approval:  `prefect deploy Loan_Approval_prediction.py:main_flow -n loan1 -p loan_approval`
   
   Get worker `prefect worker start --pool 'loan_approval'`
@@ -55,7 +72,7 @@ The loan approval dataset is a collection of financial records and associated in
   Start Run  `prefect deployment run 'main-flow/loan1'`
   
     #### please note if you want the emails to be activited add your app password in Cred.py
-    4- For Monitoring
+    12. For Monitoring
   
   Run docker compose
         `docker-compose up --build`
@@ -64,3 +81,22 @@ The loan approval dataset is a collection of financial records and associated in
          `python .\evidently_metrics.py`
   
   Open Grafana on port 3000
+
+    13. for Best Practices:
+      1. Activate Conda Enviroment  `conda activate mlops`
+      2. install pytest  `conda install -n mlops pytest`
+      3. Make sure mlflow is working by `mlflow server --backend-store-uri=sqlite:///mlflow.db`
+      4. Make sure prefect is running  `prefect server start`
+      5. Testing the code: unit tests with pytest
+        Run model_test.py by:
+        Modifing the path of both data and models to suit your local computer
+        Opening anaconda terminal and run `pytest`
+      6. Makefiles and make:
+         a. download make using `conda install -c conda-forge m2w64-make`
+         b. run in the terminal `mingw32-make`
+      7. Git pre-commit hooks
+         a. Creating a hook for the repo Run  `pre-commit install`
+         b. Run `git add .pre-commit-config.yaml`
+         c. run a git commit `git commit -m "testing" `
+      8. Code quality: linting and formatting
+      9. Integration tests with docker-compose

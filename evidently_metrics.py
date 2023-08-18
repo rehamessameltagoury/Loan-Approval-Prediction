@@ -2,15 +2,11 @@ import datetime
 import time
 import random
 import logging 
-import uuid
-import pytz
 import pandas as pd
 import os
-import psycopg
+import psycopg2 as psycopg
 import joblib
-
 from prefect import flow, task
-
 from evidently.report import Report
 from evidently import ColumnMapping
 from evidently.metrics import ColumnDriftMetric, DatasetDriftMetric, DatasetMissingValuesMetric
@@ -70,7 +66,7 @@ report = Report(metrics = [
 
 @task(retries=2, retry_delay_seconds=5, name="calculate metrics")
 def prep_db():
-	with psycopg.connect("host=localhost port=5432 user=postgres password=new_password", autocommit=True) as conn:
+	with psycopg.connect("host=localhost port=5432 user=postgres password=new_password") as conn:
 		res = conn.execute("SELECT 1 FROM pg_database WHERE dbname='loanprediction'")
 		if len(res.fetchall()) == 0:
 			conn.execute("create database loanprediction;")
@@ -81,8 +77,6 @@ def prep_db():
 def calculate_metrics_postgresql(curr, i):
 	current_data = raw_data[(raw_data.lpep_pickup_datetime >= (begin + datetime.timedelta(i))) &
 		(raw_data.lpep_pickup_datetime < (begin + datetime.timedelta(i + 1)))]
-
-	#current_data.fillna(0, inplace=True)
 	current_data['prediction'] = model.predict(current_data[num_features + cat_features].fillna(0))
 
 	report.run(reference_data = reference_data, current_data = current_data,
@@ -103,7 +97,7 @@ def calculate_metrics_postgresql(curr, i):
 def batch_monitoring_backfill():
 	prep_db()
 	last_send = datetime.datetime.now() - datetime.timedelta(seconds=10)
-	with psycopg.connect("host=localhost port=5432 dbname=loanprediction user=postgres password=new_password", autocommit=True) as conn:
+	with psycopg.connect("host=localhost port=5432 dbname=loanprediction user=postgres password=new_password") as conn:
 		for i in range(0, 27):
 			with conn.cursor() as curr:
 				calculate_metrics_postgresql(curr, i)

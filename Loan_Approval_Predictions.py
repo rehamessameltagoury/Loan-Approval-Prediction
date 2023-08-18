@@ -45,7 +45,7 @@ from prefect import flow, task
 from prefect.artifacts import create_markdown_artifact
 from prefect.context import get_run_context
 from prefect_email import EmailServerCredentials, email_send_message
-import sys
+
 
 
 
@@ -96,6 +96,7 @@ def read_dataframe(filename: str):
     df[' education']=df[' education'].apply(lambda x: education[x])
     df[' self_employed']=df[' self_employed'].apply(lambda x: self_employed[x])
     df[' loan_status']=df[' loan_status'].apply(lambda x: loan_status[x])
+    print(df.head())
     return df
 
 
