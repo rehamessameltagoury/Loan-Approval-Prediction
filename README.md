@@ -94,9 +94,9 @@ The loan approval dataset is a collection of financial records and associated in
 
     5. Testing the code: unit tests with pytest
 
-      Run model_test.py by:
-      Modifing the path of both data and models to suit your local computer
-      Opening anaconda terminal and run `pytest`
+    Run model_test.py by:
+    Modifing the path of both data and models to suit your local computer
+    Opening anaconda terminal and run `pytest`
 
     6. Makefiles and make:
 
@@ -113,6 +113,8 @@ The loan approval dataset is a collection of financial records and associated in
         c. run a git commit `git commit -m "testing" `
 
     8. Code quality: linting and formatting
+    
+    Run `black --diff .` , `isort --diff .`
 
-    9. Integration tests with docker-compose
+    
 

@@ -10,3 +10,5 @@ optuna==3.2.0
 evidently==0.4.1
 psycopg2==2.9.7
 pre-commit==3.3.3
+pylint==2.6.0
+isort==5.12.0
