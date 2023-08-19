@@ -84,35 +84,35 @@ The loan approval dataset is a collection of financial records and associated in
 
     13. for Best Practices:
 
-      1. Activate Conda Enviroment  `conda activate mlops`
+    1. Activate Conda Enviroment  `conda activate mlops`
 
-      2. install pytest  `conda install -n mlops pytest`
+    2. install pytest  `conda install -n mlops pytest`
 
-      3. Make sure mlflow is working by `mlflow server --backend-store-uri=sqlite:///mlflow.db`
+    3. Make sure mlflow is working by `mlflow server --backend-store-uri=sqlite:///mlflow.db`
 
-      4. Make sure prefect is running  `prefect server start`
+    4. Make sure prefect is running  `prefect server start`
 
-      5. Testing the code: unit tests with pytest
+    5. Testing the code: unit tests with pytest
 
-        Run model_test.py by:
-        Modifing the path of both data and models to suit your local computer
-        Opening anaconda terminal and run `pytest`
+      Run model_test.py by:
+      Modifing the path of both data and models to suit your local computer
+      Opening anaconda terminal and run `pytest`
 
-      6. Makefiles and make:
+    6. Makefiles and make:
 
-         a. download make using `conda install -c conda-forge m2w64-make`
+        a. download make using `conda install -c conda-forge m2w64-make`
 
-         b. run in the terminal `mingw32-make`
+        b. run in the terminal `mingw32-make`
 
-      7. Git pre-commit hooks
+    7. Git pre-commit hooks
 
-         a. Creating a hook for the repo Run  `pre-commit install`
+        a. Creating a hook for the repo Run  `pre-commit install`
 
-         b. Run `git add .pre-commit-config.yaml`
+        b. Run `git add .pre-commit-config.yaml`
 
-         c. run a git commit `git commit -m "testing" `
+        c. run a git commit `git commit -m "testing" `
 
-      8. Code quality: linting and formatting
+    8. Code quality: linting and formatting
 
-      9. Integration tests with docker-compose
+    9. Integration tests with docker-compose
 
