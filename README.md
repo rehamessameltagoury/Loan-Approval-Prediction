@@ -79,8 +79,6 @@ The loan approval dataset is a collection of financial records and associated in
   
   Run evidently file 
          `python .\evidently_metrics.py`
-  
-  Open Grafana on port 3000
 
     13. for Best Practices:
 
