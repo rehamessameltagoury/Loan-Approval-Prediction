@@ -4,7 +4,6 @@ import pickle
 import random
 import logging
 import datetime
-
 import joblib
 import pandas as pd
 import psycopg2 as psycopg
