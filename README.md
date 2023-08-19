@@ -24,17 +24,17 @@ The loan approval dataset is a collection of financial records and associated in
     In this notebook you will find the Data exploration and interacting with MLFLOW Model Registry
   ## Loan_Approval_prediction.py
     ### read_dataframe :
-        Function used to read the csv data from data folder and then encode `loan_status` , `education` , `self_employed` and returns dataframe
+      Function used to read the csv data from data folder and then encode `loan_status` , `education` , `self_employed` and returns dataframe
     ### run_data_prep:
-         this function is considered to be the first task,it takes the Data path and output the pickle files (train , Val) to be passed to Random Forest Model
+      this function is considered to be the first task,it takes the Data path and output the pickle files (train , Val) to be passed to Random Forest Model
     ### run_optimization:
-          this function creates an optimize study to run mutliple parameters Random forest model and pick the best one
+      this function creates an optimize study to run mutliple parameters Random forest model and pick the best one
     ### train_and_log_model:
-          Function used to train and log model parameters to mlflow
+      Function used to train and log model parameters to mlflow
     ### run_register_model:
-        takes data path and two experments name the optimization experiment and normal one to compare and pick the best model for registring it.
+      takes data path and two experments name the optimization experiment and normal one to compare and pick the best model for registring it.
     ### main_flow:
-        at the end it picks the best model which is version 1  with acc = 98% and move it to production  state
+      at the end it picks the best model which is version 1  with acc = 98% and move it to production  state
   ### the script is deployed on prefect locally and send emails when there is failure or success to notify the developer
   ## evidently_metrics.py:
   I used to connect with postgressql database and send my data to be saved in it and monitor them on grafana Dashboard I picked these three metrics to be monitored
@@ -52,7 +52,7 @@ The loan approval dataset is a collection of financial records and associated in
 
     4. Activate your environment  `conda activate mlops`
   
-    5. Install requirements.txt  `pip install -r requirements.txt`
+    5. Install requirements.txt  `pip install -r requirements.txt` or `conda install --file requirements.txt`
 
     6. Add you Email and password in Cred.py
 
@@ -83,20 +83,36 @@ The loan approval dataset is a collection of financial records and associated in
   Open Grafana on port 3000
 
     13. for Best Practices:
+
       1. Activate Conda Enviroment  `conda activate mlops`
+
       2. install pytest  `conda install -n mlops pytest`
+
       3. Make sure mlflow is working by `mlflow server --backend-store-uri=sqlite:///mlflow.db`
+
       4. Make sure prefect is running  `prefect server start`
+
       5. Testing the code: unit tests with pytest
+
         Run model_test.py by:
         Modifing the path of both data and models to suit your local computer
         Opening anaconda terminal and run `pytest`
+
       6. Makefiles and make:
+
          a. download make using `conda install -c conda-forge m2w64-make`
+
          b. run in the terminal `mingw32-make`
+
       7. Git pre-commit hooks
+
          a. Creating a hook for the repo Run  `pre-commit install`
+
          b. Run `git add .pre-commit-config.yaml`
+
          c. run a git commit `git commit -m "testing" `
+
       8. Code quality: linting and formatting
+
       9. Integration tests with docker-compose
+
